@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html ng-app="usersApp">
+<head>
+  <title>Scholar Barter</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="Content/bootstrap.css" rel="stylesheet" />
+  <link href="Content/animations.css" rel="stylesheet" />
+  <link href="Content/styles.css" rel="stylesheet" />
+</head>
+<body ng-cloak>
+
+  <header class="navbar navbar-inner navbar-fixed-top" ng-controller="NavbarController as vm">
+    <nav class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-click="vm.isCollapsed = !vm.isCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/">
+          <img src="Content/images/people.png" alt="logo">
+          <span class="appTitle">{{ vm.appTitle }}</span>
+        </a>
+      </div>
+      <div class="nav-container" data-collapse="isCollapsed">
+
+        <!-- With menu-highlighter directive -->
+        <ul class="nav navbar-nav nav-pills navBarPadding"
+            menu-highlighter highlight-class-name="active">
+          <li><a href="#/listings">Listings</a></li>
+          <li><a href="#/users">Users</a></li>
+          <li><a href="#/about">About</a></li>
+          <li id="nav-login" ng-click="vm.loginOrOut()">
+            <!-- href not used but needed to compare against path in menu-highlighter -->
+            <a data-href="#/login">{{ vm.loginLogoutText }}</a>
+          </li>
+        </ul>
+
+      
+      </div>
+    </nav>
+  </header>
+
+  <div class="slide-animation-container">
+    <div ng-view id="ng-view" class="slide-animation"></div>
+  </div>
+
+  <div id="footer">
+    <div class="navbar navbar-fixed-bottom">
+      <div class="navbar-inner footer">
+        <div class="container">
+          <footer>
+            <div class="row">
+              <div class="col-md-12">
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div wc-overlay wc-overlay-delay="300">
+    <br />
+    <img src="Content/images/spinner.gif" />&nbsp;&nbsp;Loading
+  </div>
+
+  <!-- 3rd party libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="Scripts/angular-ui-bootstrap.js"></script>
+  <script src="Scripts/tweenMax.min.js"></script>
+
+  <!-- To use breeze change the app/usersApp/services/config.js useBreeze property to true -->
+  <script src="Scripts/breeze.min.js"></script>
+  <script src="Scripts/breeze.angular.js"></script>
+
+  <!-- Custom scripts -->
+  <script src="app/wc.directives/directives/wcOverlay.js"></script>
+  <script src="app/wc.directives/directives/menuHighlighter.js"></script>
+  <script src="app/usersApp/app.js"></script>
+  <script src="app/usersApp/animations/listAnimations.js"></script>
+  <script src="app/usersApp/directives/wcUnique.js"></script>
+  <script src="app/usersApp/filters/nameCityStateFilter.js"></script>
+<script src="app/usersApp/filters/nameProductFilter.js"></script>
+  <script src="app/usersApp/filters/listingTitleFilter.js"></script>
+  <script src="app/usersApp/services/config.js"></script>
+  <script src="app/usersApp/services/authService.js"></script>
+  <script src="app/usersApp/services/httpInterceptors.js"></script>
+  <script src="app/usersApp/services/usersService.js"></script>
+  <script src="app/usersApp/services/dataService.js"></script>
+  <script src="app/usersApp/services/modalService.js"></script>
+  <script src="app/usersApp/controllers/users/UserEditController.js"></script>
+  <script src="app/usersApp/controllers/users/UserListingsController.js"></script>
+  <script src="app/usersApp/controllers/users/UsersController.js"></script>
+  <script src="app/usersApp/controllers/orders/orderChildController.js"></script>
+  <script src="app/usersApp/controllers/orders/ordersController.js"></script>
+  <script src="app/usersApp/controllers/listing/listingsController.js"></script>
+  <script src="app/usersApp/controllers/listing/listingChildController.js"></script>
+  <script src="app/usersApp/controllers/listing/listingEditController.js"></script>
+  <script src="app/usersApp/controllers/aboutController.js"></script>
+  <script src="app/usersApp/controllers/navbarController.js"></script>
+  <script src="app/usersApp/controllers/loginController.js"></script>
+
+</body>
+</html>
+
+

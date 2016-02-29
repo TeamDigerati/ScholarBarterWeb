@@ -1,0 +1,26 @@
+﻿<table class="table table-hover table-striped table-condensed table-bordered ordersTable">
+  <thead>
+    <tr>
+      <th data-ng-click="vm.setOrder('firstName')">User</th>
+      <th data-ng-click="vm.setOrder('date')">Date</th>
+      <th data-ng-click="vm.setOrder('customer')">List</th>
+      <th data-ng-click="vm.setOrder('orderTotal')">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-ng-hide="vm.customer.orders || vm.customer.orders.length > 0" class="error">
+      <td colspan="4">
+        <div class="text-center"><strong>No orders found</strong></div>
+      </td>
+    </tr>
+    <tr data-ng-repeat="order in vm.customer.orders | orderBy:vm.orderby:vm.reverse" class="repeat-animation">
+      <td>{{ customer.firstName + ' ' + customer.lastName }}</td>
+      <td>{{ order.date | date:'MM/dd/yyyy' }}</td>
+      <td>{{ order.product }}</td>
+      <td>{{ order.orderTotal | currency }}</td>
+    </tr>
+    <tr class="info">
+      <td colspan="4">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,113 @@
+﻿<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> Add Listing</h3>
+        </header>
+        <form name="editForm" novalidate>
+            <div class="listingEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{ vm.customer.firstName + ' ' + vm.customer.lastName }} <span data-ng-hide="vm.customer.id == 0">(<a style="font-size:12pt" href="#/customerorders/{{vm.customer.id}}">View Listings</a>)</span></h4>
+                        <br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        Title:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="Title" class="form-control" data-ng-model="vm.customer.firstName" required />
+                        <span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">
+                            Title is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Description:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="Description" class="form-control" data-ng-model="vm.customer.lastName" required />
+                        <span class="errorMessage" ng-show="editForm.lastName.$touched && editForm.lastName.$invalid">
+                            Description is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <br />
+
+              <br/>
+                   <div class="row">
+                    <div class="col-md-2">
+                        Category:
+                    </div>
+                    <div class="col-md-10">
+                        <select name="ListingTypes" required class="form-control"
+                                data-ng-model="vm.customer.stateId"
+                                data-ng-options="ListingType.listingTypeid as ListingType.description for ListingType in vm.ListingTypes">
+                            <option value=""></option>
+                        </select>
+                        <span class="errorMessage" ng-show="editForm.state.$touched && editForm.state.$invalid">
+                            Category is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+     
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        Quantity:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="address" class="form-control" data-ng-model="vm.customer.address" required />
+                        <span class="errorMessage" ng-show="editForm.address.$touched && editForm.address.$invalid">
+                            Quantity is required
+                        </span>
+                    </div>
+                </div>
+              <br/>
+               <div class="row">
+                    <div class="col-md-2">
+                        Price:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="address" class="form-control" data-ng-model="vm.customer.address" required />
+                        <span class="errorMessage" ng-show="editForm.address.$touched && editForm.address.$invalid">
+                            Price is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+           
+                <br />
+                
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveCustomer()"
+                                ng-disabled="editForm.$invalid || !editForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.customer.id > 0" data-ng-click="vm.deleteCustomer()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Customer updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+           
+        </form>
+    </div>
+</div>
