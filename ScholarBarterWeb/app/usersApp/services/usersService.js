@@ -11,7 +11,7 @@
         };
 
         factory.getCustomers = function (pageIndex, pageSize) {
-            return getPagedResource('customers', pageIndex, pageSize);
+            return getPagedResource('users', pageIndex, pageSize);
         };
 
         factory.getCustomersSummary = function (pageIndex, pageSize) {
