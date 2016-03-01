@@ -42,7 +42,7 @@ namespace ScholarBarterApi.Controllers
 
       [HttpGet]
       [EnableQuery]
-      public HttpResponseMessage Customers()
+      public HttpResponseMessage Users()
       {
         var customers = _dc.Users.ToList();
         HttpContext.Current.Response.Headers.Add("X-InlineCount", customers.Count().ToString(CultureInfo.InvariantCulture));
