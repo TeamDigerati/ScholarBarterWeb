@@ -3,7 +3,7 @@
   var injectParams = ['$http', '$rootScope'];
 
   var authFactory = function ($http, $rootScope) {
-    var serviceBase = 'http://localhost:58760/api/dataservice/',
+    var serviceBase = 'http://api.scholarbarter.com:8080/api/dataservice/',
         factory = {
           loginPath: '/login',
           user: {

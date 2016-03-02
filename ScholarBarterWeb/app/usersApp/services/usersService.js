@@ -3,19 +3,19 @@
     var injectParams = ['$http', '$q'];
 
     var customersFactory = function ($http, $q) {
-      var serviceBase = 'http://localhost:58760/api/dataservice/',
+      var serviceBase = 'http://api.scholarbarter.com:8080/api/dataservice/',
             factory = {};
       
         factory.getlistings = function (pageIndex, pageSize) {
-          return getPagedResource('listings', pageIndex, pageSize);
+          return getPagedResource('activeListings', pageIndex, pageSize);
         };
 
         factory.getCustomers = function (pageIndex, pageSize) {
-            return getPagedResource('users', pageIndex, pageSize);
+          return getPagedResource('activeUsers', pageIndex, pageSize);
         };
 
         factory.getCustomersSummary = function (pageIndex, pageSize) {
-            return getPagedResource('customersSummary', pageIndex, pageSize);
+          return getPagedResource('allUsers', pageIndex, pageSize);
         };
 
         factory.getStates = function () {
