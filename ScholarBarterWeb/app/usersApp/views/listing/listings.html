@@ -71,10 +71,10 @@
         </thead>
         <tbody>
           <tr data-ng-repeat="listing in vm.filteredListings | orderBy:vm.orderby:vm.reverse" class="repeat-animation">
-            <td>{{ listing.listing.creationTime | date:'MM/dd/yyyy' }}</td>
-            <td  width="50%">{{ listing.listing.title }}</td>
-            <td>{{ listing.listing.price | currency }}</td>
-            <td><a href="#/userlistings/{{listing.listing.userId}}">{{ listing.firstName + ' ' + listing.lastName}}</a></td>
+            <td>{{listing.creationTime | date:'MM/dd/yyyy' }}</td>
+            <td  width="50%">{{ listing.title }}</td>
+            <td>{{ listing.price | currency }}</td>
+            <td><a href="#/userlistings/{{listing.userId}}">{{ listing.firstName + ' ' + listing.lastName}}</a></td>
             <!--<td width="10%">{{ listing.listing.listingType }}</td>-->
            
            

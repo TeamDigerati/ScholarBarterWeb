@@ -4,7 +4,7 @@
 
     function matchesProduct(listing, filterValue) {
       if (listing) {
-        if (listing.listing.title.toLowerCase().indexOf(filterValue) > -1) {
+        if (listing.title.toLowerCase().indexOf(filterValue) > -1) {
           return true;
         }
       }
@@ -13,7 +13,7 @@
 
     function matchesProductByType(listing, filterValue) {
       if (listing) {
-        if (listing.listing.listingType.toLowerCase().indexOf(filterValue) > -1) {
+        if (listing.listingType.toLowerCase().indexOf(filterValue) > -1) {
           return true;
         }
       }
