@@ -37,8 +37,9 @@
        .when('/listingAdd', {
          controller: 'listingEditController',
          templateUrl: viewBase + 'listing/ListingAdd.html',
-         controllerAs: 'vm',
-         secure: true //This route requires an authenticated user
+         controllerAs: 'vm'
+         //,
+         //secure: true //This route requires an authenticated user
        })
         .when('/about', {
           controller: 'AboutController',

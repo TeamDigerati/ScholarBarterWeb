@@ -74,7 +74,7 @@
         factory.getCustomer = function (id) {
             //then does not unwrap data so must go through .data property
             //success unwraps data automatically (no need to call .data property)
-            return $http.get(serviceBase + 'customerById/' + id).then(function (results) {
+            return $http.get(serviceBase + 'userById/' + id).then(function (results) {
                 extendCustomers([results.data]);
                 return results.data;
             });

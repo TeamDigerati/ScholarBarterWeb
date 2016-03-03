@@ -18,7 +18,7 @@
 
         //paging
         vm.totalRecords = 0;
-        vm.pageSize = 10;
+        vm.pageSize = 100;
         vm.currentPage = 1;
 
         vm.pageChanged = function (page) {

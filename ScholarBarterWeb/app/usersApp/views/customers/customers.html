@@ -53,10 +53,8 @@
                                     <!--<div class="cardBodyContent">{{customer.city}}, {{customer.state.name}}</div>-->
                                     <div>
                                         <a href="#/userlistings/{{customer.userId}}" class="btn-link">
-                                            {{ customer.listings.length }}
-                                            <span data-ng-pluralize count="customer.listings.length"
-                                                  when="{'1': 'Listing','other': 'Listings'}">
-                                            </span>
+                                            {{ customer.eduEmail}}
+                                      
                                         </a>
                                     </div>
                                 </div>
@@ -83,10 +81,8 @@
                                     <td><a href="#/useredit/{{customer.userId}}">{{customer.firstName + ' ' + customer.lastName}}</a></td>
                                     <td>
                                         <a href="#/userlistings/{{customer.userId}}" class="btn-link">
-                                            {{ customer.listings.length }}
-                                            <span data-ng-pluralize count="customer.listings.length"
-                                                  when="{'1': 'Listing','other': 'Listings'}">
-                                            </span>
+                                            {{ customer.eduEmail }}
+                                            
                                         </a>
                                     </td>
                                     <td><button class="btn btn-danger" data-ng-click="vm.deleteCustomer(customer.userId)">Delete</button></td>

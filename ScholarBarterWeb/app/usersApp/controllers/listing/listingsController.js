@@ -10,12 +10,14 @@
     vm.filteredListings;
     vm.filteredCount;
 
+    vm.listingTypes = [];
+
     vm.orderby = 'title';
     vm.reverse = false;
 
     //paging
     vm.totalRecords = 0;
-    vm.pageSize = 10;
+    vm.pageSize = 100;
     vm.currentPage = 1;
 
     init();
@@ -35,17 +37,27 @@
     vm.searchTextChanged = function () {
       filterListings(vm.searchText);
     };
+
+    vm.searchTypeChanged = function () {
+      filterListingsByType(vm.searchTextListingType);
+    };
     vm.navigate = function (url) {
       $location.path(url);
     };
 
     function init() {
       getListings();
+      getListingTypes();
     }
 
 
     function filterListings(filterText) {
       vm.filteredListings = $filter("listingTitleFilter")(vm.listings, filterText);
+      vm.filteredCount = vm.filteredListings.length;
+    }
+
+    function filterListingsByType(filterText) {
+      vm.filteredListings = $filter("listingTitleFilter")(vm.listings, filterText, true);
       vm.filteredCount = vm.filteredListings.length;
     }
 
@@ -59,6 +71,14 @@
           }, function (error) {
             $window.alert(error.message);
           });
+    }
+
+    function getListingTypes() {
+      return dataService.getListingTypes().then(function (listingTypes) {
+        vm.listingTypes = listingTypes;
+      }, function(error) {
+        $window.alert(error.message);
+      });
     }
   };
 
