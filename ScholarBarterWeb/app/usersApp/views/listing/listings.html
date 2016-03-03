@@ -28,15 +28,18 @@
                   <form class="navbar-form navbar-right">
                     <div class="form-group">
                       
-                      <label class="navbarText col-sm-2">Type:</label>
+                      <label class="navbarText col-sm-5">Listing Type:</label>
+                      
                       <select name="ListingTypes" class="form-control"
                               data-ng-model="vm.searchTextListingType"
                               data-ng-change="vm.searchTypeChanged()"
                               data-ng-options="listingType.type as listingType.type for listingType in vm.listingTypes">
                         <option value=""></option>
+                   
                       </select>
-                      <br/>
-                      <br/>
+                      <br />
+                       <br />
+                     
                       <label class="navbarText col-sm-2">Filter:</label>
                       <div class="col-sm-10">
                         <input type="text"
@@ -57,20 +60,24 @@
     <table class="table table-hover table-striped table-condensed table-bordered ordersTable">
         <thead>
           <tr>
-            <th data-ng-click="vm.setOrder('listing.title')">Title</th>
-            <th data-ng-click="vm.setOrder('firstName')">User</th>
-            <th data-ng-click="vm.setOrder('listing.listingType')">Type</th>
-            <th data-ng-click="vm.setOrder('listing.price')">Price</th>
             <th data-ng-click="vm.setOrder('listing.creationTime')">Date</th>
+            <th data-ng-click="vm.setOrder('listing.title')">Title</th>
+            <th data-ng-click="vm.setOrder('listing.price')">Price</th>
+            <th data-ng-click="vm.setOrder('firstName')">User</th>
+            <!--<th data-ng-click="vm.setOrder('listing.listingType')">Type</th>-->
+           
+           
           </tr>
         </thead>
         <tbody>
           <tr data-ng-repeat="listing in vm.filteredListings | orderBy:vm.orderby:vm.reverse" class="repeat-animation">
-            <td  width="40%">{{ listing.listing.title }}</td>
-            <td><a href="#/userlistings/{{listing.listing.userId}}">{{ listing.firstName + ' ' + listing.lastName}}</a></td>
-            <td width="10%">{{ listing.listing.listingType }}</td>
-            <td>{{ listing.listing.price | currency }}</td>
             <td>{{ listing.listing.creationTime | date:'MM/dd/yyyy' }}</td>
+            <td  width="50%">{{ listing.listing.title }}</td>
+            <td>{{ listing.listing.price | currency }}</td>
+            <td><a href="#/userlistings/{{listing.listing.userId}}">{{ listing.firstName + ' ' + listing.lastName}}</a></td>
+            <!--<td width="10%">{{ listing.listing.listingType }}</td>-->
+           
+           
           </tr>
           <tr class="info">
             <td colspan="5">&nbsp;</td>
