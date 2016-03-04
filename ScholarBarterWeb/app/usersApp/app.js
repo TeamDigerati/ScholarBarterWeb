@@ -3,6 +3,14 @@
   var app = angular.module('usersApp',
       ['ngRoute', 'ngAnimate', 'wc.directives', 'ui.bootstrap', 'breeze.angular']);
 
+
+  //app.config(function ($httpProvider) {
+  //  $httpProvider.defaults.headers.common = {};
+  //  $httpProvider.defaults.headers.post = {};
+  //  $httpProvider.defaults.headers.put = {};
+  //  $httpProvider.defaults.headers.patch = {};
+  //});
+
   app.config(['$routeProvider', function ($routeProvider) {
     var viewBase = '/app/usersApp/views/';
 
@@ -10,7 +18,8 @@
         .when('/users', {
           controller: 'UsersController',
           templateUrl: viewBase + 'customers/customers.html',
-          controllerAs: 'vm'
+          controllerAs: 'vm',
+          secure: true //This route requires an authenticated user
         })
         .when('/userlistings/:customerId', {
           controller: 'UserListingsController',
@@ -30,16 +39,14 @@
         .when('/listings', {
           controller: 'ListingsController',
           templateUrl: viewBase + 'listing/listings.html',
-          controllerAs: 'vm'
-          //,
-          //secure: true //This route requires an authenticated user
+          controllerAs: 'vm',
+          secure: true //This route requires an authenticated user
         })
        .when('/listingAdd', {
          controller: 'listingEditController',
          templateUrl: viewBase + 'listing/ListingAdd.html',
-         controllerAs: 'vm'
-         //,
-         //secure: true //This route requires an authenticated user
+         controllerAs: 'vm',
+         secure: true //This route requires an authenticated user
        })
         .when('/about', {
           controller: 'AboutController',

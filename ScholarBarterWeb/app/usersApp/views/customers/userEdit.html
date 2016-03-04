@@ -16,7 +16,7 @@
                         First Name:
                     </div>
                     <div class="col-md-10">
-                        <input type="text" name="firstName" class="form-control" data-ng-model="vm.customer.firstName" required />
+                        <input type="text" name="firstName" class="form-control" data-ng-model="vm.firstName" required />
                         <span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">
                             First name is required
                         </span>
@@ -28,7 +28,7 @@
                         Last Name:
                     </div>
                     <div class="col-md-10">
-                        <input type="text" name="lastName" class="form-control" data-ng-model="vm.customer.lastName" required />
+                        <input type="text" name="lastName" class="form-control" data-ng-model="vm.lastName" required />
                         <span class="errorMessage" ng-show="editForm.lastName.$touched && editForm.lastName.$invalid">
                             Last name is required
                         </span>
@@ -43,16 +43,16 @@
                         <div class="radio">
                             <label class="radio">
                                 <input type="radio" name="gender" value="Male"
-                                       data-ng-checked="vm.customer.gender == 'Male'"
-                                       data-ng-model="vm.customer.gender" />
+                                       data-ng-checked="vm.gender == 'Male'"
+                                       data-ng-model="vm.gender" />
                                 Male
                             </label>
                         </div>
                         <div class="radio">
                             <label class="radio">
                                 <input type="radio" name="gender" value="Female"
-                                       data-ng-checked="vm.customer.gender == 'Female'"
-                                       data-ng-model="vm.customer.gender" />
+                                       data-ng-checked="vm.gender == 'Female'"
+                                       data-ng-model="vm.gender" />
                                 Female
                                 <br />
                             </label>
@@ -69,7 +69,7 @@
                         out (the default behavior) if email is determined to be invalid due to being a duplicate-->
                         <input type="text" name="email"
                                class="form-control"
-                               data-ng-model="vm.customer.email"
+                               data-ng-model="vm.eduEmail"
                                data-ng-model-options="{ updateOn: 'blur', allowInvalid: true }"
                                data-wc-unique
                                data-wc-unique-key="{{vm.customer.id}}"
@@ -88,8 +88,8 @@
                   Password:
                 </div>
                 <div class="col-md-10">
-                  <input type="text" name="address" class="form-control" data-ng-model="vm.customer.address" required/>
-                  <span class="errorMessage" ng-show="editForm.address.$touched && editForm.address.$invalid">
+                  <input type="password" name="password"  class="form-control" data-ng-model="vm.passwordHash" required/>
+                  <span class="errorMessage" ng-show="editForm.password.$touched && editForm.password.$invalid">
                             Password is required
                         </span>
                 </div>
@@ -100,8 +100,8 @@
                         Confirm Password:
                     </div>
                     <div class="col-md-10">
-                        <input type="text" name="address" class="form-control" data-ng-model="vm.customer.address" required />
-                        <span class="errorMessage" ng-show="editForm.address.$touched && editForm.address.$invalid">
+                        <input type="password" name="passwordConfirm" class="form-control" data-ng-model="vm.passwordConfirm" required />
+                        <span class="errorMessage" ng-show="editForm.passwordConfirm.$touched && editForm.passwordConfirm.$invalid">
                             Confirm Password is required
                         </span>
                     </div>

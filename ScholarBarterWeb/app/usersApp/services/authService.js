@@ -4,6 +4,7 @@
 
   var authFactory = function ($http, $rootScope) {
     var serviceBase = 'http://api.scholarbarter.com:8080/api/dataservice/',
+    //var serviceBase = 'http://localhost:58760/api/dataservice/',
         factory = {
           loginPath: '/login',
           user: {
@@ -13,7 +14,8 @@
         };
 
     factory.login = function (email, password) {
-      return $http.post(serviceBase + 'login', { userName: email, password: password }).then(
+      //return $http.post(serviceBase + 'login', { userName: email, password: password }, { headers: { 'Content-Type': 'application/json' } }).then(
+        return $http.post(serviceBase + 'login', { userName: email, password: password }).then(
           function (results) {
             if (results.data) {
               $rootScope.currentUser = results.data;
