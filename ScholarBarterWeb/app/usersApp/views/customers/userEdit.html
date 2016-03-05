@@ -7,7 +7,7 @@
             <div class="userEdit">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>{{ vm.customer.firstName + ' ' + vm.customer.lastName }} <span data-ng-hide="vm.customer.id == 0">(<a style="font-size:12pt" href="#/userlistings/{{vm.customer.id}}">View Listings</a>)</span></h4>
+                        <h4>{{ vm.customer.firstName + ' ' + vm.customer.lastName }} <span data-ng-hide="vm.customer.id == 0">(<a style="font-size:12pt" href="#/login">Sign in</a>)</span></h4>
                         <br />
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                     <div class="col-md-10">
                         <div class="radio">
                             <label class="radio">
-                                <input type="radio" name="gender" value="Male"
+                                <input type="radio" name="gender" value="Male" checked ="checked" 
                                        data-ng-checked="vm.gender == 'Male'"
                                        data-ng-model="vm.gender" />
                                 Male
@@ -62,7 +62,7 @@
                 <br />
                 <div class="row">
                     <div class="col-md-2">
-                        Email:
+                        University Email:
                     </div>
                     <div class="col-md-10">
                         <!-- allowInvalid added below so that the model isn't wiped
@@ -121,7 +121,7 @@
                 <div class="statusRow">
                     <br />
                     <div class="label label-success" data-ng-show="vm.updateStatus">
-                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;User updated!
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Validation Email sent, Please check your email!
                     </div>
                 </div>
                 <div class="statusRow">
